@@ -9,19 +9,22 @@ config();
 
 const app = express();
 
-// Use CORS with frontend URL from environment
-app.use(cors({
+// ✅ CORS configuration
+const corsOptions = {
   origin: "https://quant-wiz.netlify.app",
   credentials: true
-}));
+};
+
+app.use(cors(corsOptions));
+
+// ✅ Handle preflight OPTIONS requests globally
+app.options("*", cors(corsOptions));
 
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
-// Development logging
 app.use(morgan('dev'));
 
-// Main route
 app.use('/api/v1', appRouter);
 
 export default app;
