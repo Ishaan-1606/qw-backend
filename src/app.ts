@@ -10,7 +10,11 @@ config();
 const app = express();
 
 // Use CORS with frontend URL from environment
-app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
+app.use(cors({
+  origin: "https://quant-wiz.netlify.app",
+  credentials: true
+}));
+
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
