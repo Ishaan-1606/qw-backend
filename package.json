@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
-    "build": "tsc",  // Add this to compile TypeScript to JavaScript
+    "build": "tsc",
     "start": "node dist/index.js"
   },
   "keywords": [],
